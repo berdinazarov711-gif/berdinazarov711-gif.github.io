@@ -50,6 +50,14 @@
                 <button class="btn btn-reset" id="resetBtn" onclick="resetGame()">↻ Reset</button>
             </div>
 
+            <!-- Mobile Direction Controls -->
+            <div class="mobile-controls" id="mobileControls">
+                <button class="mobile-btn mobile-btn-up" onclick="mobileMove('up')">⬆️</button>
+                <button class="mobile-btn mobile-btn-left" onclick="mobileMove('left')">⬅️</button>
+                <button class="mobile-btn mobile-btn-right" onclick="mobileMove('right')">➡️</button>
+                <button class="mobile-btn mobile-btn-down" onclick="mobileMove('down')">⬇️</button>
+            </div>
+
             <div class="mode-selector">
                 <label>Game Mode:</label>
                 <select id="modeSelect" onchange="changeMode()">
@@ -71,10 +79,12 @@
         <!-- Instructions -->
         <div class="instructions">
             <h3>How to Play</h3>
-            <p>🎮 Use <strong>Arrow Keys</strong> or <strong>WASD</strong> to move the snake</p>
+            <p>🎮 <strong>Desktop:</strong> Use Arrow Keys or WASD to move</p>
+            <p>📱 <strong>Mobile:</strong> Swipe or tap direction buttons to move</p>
             <p>🍎 Eat food to grow and earn points</p>
             <p>⭐ Collect power-ups for special abilities</p>
             <p>👹 Avoid obstacles and enemies (in Cosmic mode)</p>
+            <p>⏸ Press SPACE or Pause button to pause</p>
         </div>
 
         <!-- Back to Portfolio -->
