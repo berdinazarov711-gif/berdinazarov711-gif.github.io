@@ -75,6 +75,7 @@ canvas {
     width: 100%;
     height: auto;
     box-shadow: 0 0 30px rgba(102, 126, 234, 0.4);
+    touch-action: none;
 }
 
 /* Message System */
@@ -261,6 +262,58 @@ canvas {
     color: white;
 }
 
+/* Mobile Controls */
+.mobile-controls {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.mobile-controls.active {
+    display: grid;
+}
+
+.mobile-btn {
+    padding: 1rem;
+    border: 2px solid rgba(102, 126, 234, 0.5);
+    background: rgba(102, 126, 234, 0.2);
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1.5rem;
+}
+
+.mobile-btn:active {
+    background: rgba(102, 126, 234, 0.5);
+    transform: scale(0.95);
+}
+
+.mobile-btn-spacer {
+    grid-column: 1 / -1;
+}
+
+.mobile-btn-up {
+    grid-column: 2;
+}
+
+.mobile-btn-down {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.mobile-btn-left {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.mobile-btn-right {
+    grid-column: 3;
+    grid-row: 2;
+}
+
 /* Leaderboard */
 .leaderboard {
     background: rgba(30, 27, 60, 0.8);
@@ -387,5 +440,44 @@ canvas {
     .mode-selector {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    /* Show mobile controls on mobile devices */
+    .mobile-controls {
+        display: grid !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-title {
+        font-size: 1.5rem;
+    }
+
+    .game-controls {
+        padding: 1rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    .mobile-btn {
+        padding: 0.8rem;
+        font-size: 1.2rem;
+    }
+
+    .leaderboard,
+    .instructions {
+        padding: 1rem;
+    }
+
+    .instructions p {
+        font-size: 0.9rem;
     }
 }
