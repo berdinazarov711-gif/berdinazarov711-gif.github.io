@@ -499,6 +499,26 @@ function drawGameOverScreen() {
     ctx.fillText('Level: ' + gameState.level, canvas.width / 2, canvas.height / 2 + 50);
 }
 
+// Mobile Move Function
+function mobileMove(direction) {
+    if (!gameState.gameRunning) return;
+    
+    switch(direction) {
+        case 'up':
+            if (gameState.direction.y === 0) gameState.nextDirection = {x: 0, y: -1};
+            break;
+        case 'down':
+            if (gameState.direction.y === 0) gameState.nextDirection = {x: 0, y: 1};
+            break;
+        case 'left':
+            if (gameState.direction.x === 0) gameState.nextDirection = {x: -1, y: 0};
+            break;
+        case 'right':
+            if (gameState.direction.x === 0) gameState.nextDirection = {x: 1, y: 0};
+            break;
+    }
+}
+
 // Keyboard Controls
 document.addEventListener('keydown', (e) => {
     if (!gameState.gameRunning) return;
@@ -519,6 +539,46 @@ document.addEventListener('keydown', (e) => {
         pauseGame();
     }
 });
+
+// Touch Controls for Mobile - Swipe Gestures
+let touchStartX = 0;
+let touchStartY = 0;
+
+canvas.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+}, false);
+
+canvas.addEventListener('touchmove', (e) => {
+    if (!gameState.gameRunning) return;
+    
+    e.preventDefault();
+    
+    const touchEndX = e.touches[0].clientX;
+    const touchEndY = e.touches[0].clientY;
+    
+    const diffX = touchStartX - touchEndX;
+    const diffY = touchStartY - touchEndY;
+    
+    // Minimum swipe distance
+    const minSwipeDistance = 30;
+    
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        // Horizontal swipe
+        if (diffX > minSwipeDistance && gameState.direction.x === 0) {
+            gameState.nextDirection = {x: -1, y: 0}; // Left
+        } else if (diffX < -minSwipeDistance && gameState.direction.x === 0) {
+            gameState.nextDirection = {x: 1, y: 0}; // Right
+        }
+    } else {
+        // Vertical swipe
+        if (diffY > minSwipeDistance && gameState.direction.y === 0) {
+            gameState.nextDirection = {x: 0, y: -1}; // Up
+        } else if (diffY < -minSwipeDistance && gameState.direction.y === 0) {
+            gameState.nextDirection = {x: 0, y: 1}; // Down
+        }
+    }
+}, false);
 
 // Initialize
 updateLeaderboard();
