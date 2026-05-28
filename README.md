@@ -22,6 +22,16 @@ Free & Open Source video downloader with beautiful PyQt5 GUI.
 
 **Link:** https://github.com/berdinazarov711-gif/gnu-video-downloader
 
+### 🌌 Cosmic Snake
+An interactive snake game with cosmic theme! Play online with multiple game modes.
+- Classic, Endless, and Cosmic (Hard) modes
+- Score tracking and high scores leaderboard
+- Power-ups and enemies
+- Responsive design - play on desktop or mobile
+- Built with HTML5 Canvas and JavaScript
+
+**Link:** https://berdinazarov711-gif.github.io/games/cosmic-snake/
+
 ### 🐍 My First Repo
 Starting my programming journey with Python basics.
 - Learn Python fundamentals
@@ -40,6 +50,7 @@ Starting my programming journey with Python basics.
 - Blender 🎨
 - Git/GitHub 🔧
 - Terminal Power User ⚡
+- HTML5/CSS/JavaScript 🌐
 
 ## 🔗 Connect With Me
 
