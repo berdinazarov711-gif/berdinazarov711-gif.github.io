@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berdi's Cosmic Snake - Portfolio Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Game Container -->
+    <div class="game-wrapper">
+        <!-- Header -->
+        <div class="game-header">
+            <h1 class="game-title">🌌 Cosmic Snake</h1>
+            <p class="game-subtitle">by Berdi Nazarov</p>
+        </div>
+
+        <!-- Main Game Container -->
+        <div class="game-container">
+            <!-- Canvas -->
+            <canvas id="gameCanvas" width="600" height="600"></canvas>
+            
+            <!-- Message System -->
+            <div class="message-container" id="messageContainer"></div>
+        </div>
+
+        <!-- Controls & Info -->
+        <div class="game-controls">
+            <div class="info-panel">
+                <div class="info-item">
+                    <span class="info-label">Score:</span>
+                    <span class="info-value" id="score">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Level:</span>
+                    <span class="info-value" id="level">1</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Mode:</span>
+                    <span class="info-value" id="mode">Classic</span>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-play" id="playBtn" onclick="startGame()">▶ Play</button>
+                <button class="btn btn-pause" id="pauseBtn" onclick="pauseGame()" disabled>⏸ Pause</button>
+                <button class="btn btn-reset" id="resetBtn" onclick="resetGame()">↻ Reset</button>
+            </div>
+
+            <div class="mode-selector">
+                <label>Game Mode:</label>
+                <select id="modeSelect" onchange="changeMode()">
+                    <option value="classic">Classic</option>
+                    <option value="endless">Endless</option>
+                    <option value="cosmic">Cosmic (Hard)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Leaderboard -->
+        <div class="leaderboard">
+            <h3>🏆 High Scores</h3>
+            <div class="leaderboard-list" id="leaderboard">
+                <div class="leaderboard-item">No scores yet</div>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <h3>How to Play</h3>
+            <p>🎮 Use <strong>Arrow Keys</strong> or <strong>WASD</strong> to move the snake</p>
+            <p>🍎 Eat food to grow and earn points</p>
+            <p>⭐ Collect power-ups for special abilities</p>
+            <p>👹 Avoid obstacles and enemies (in Cosmic mode)</p>
+        </div>
+
+        <!-- Back to Portfolio -->
+        <a href="../index.html" class="back-link">← Back to Portfolio</a>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
